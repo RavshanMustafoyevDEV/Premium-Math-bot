@@ -13,15 +13,6 @@ async def start_command(message):
     await message.answer("Bo'limlardan birini tanlang:", reply_markup=mrk.mavzularMenu)
 
 
-
-
-
-
-
-
-
-
-
 @dp.callback_query_handler(text="list_mavzular")
 async def list_mavzular(call:CallbackQuery, state:FSMContext):
     await call.message.delete()
