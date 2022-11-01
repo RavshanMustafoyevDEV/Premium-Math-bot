@@ -1,5 +1,5 @@
 from aiogram.types import CallbackQuery
-from app import bot, dp, db, st, cfg
+from app import bot, dp, db, st, cfg, types
 from keyboards import admin_mrk as adm
 
 from aiogram.dispatcher import FSMContext
@@ -20,21 +20,33 @@ async def act_reedem(call:CallbackQuery, state:FSMContext):
 
 
 @dp.message_handler(user_id=cfg.ADMINS, state=st.act_reedem.code)
-async def set_act_reedem(message, state:FSMContext):
+async def ok_actReedem(message:types.Message, state:FSMContext):
     await state.update_data(code=message.text)
     data = await state.get_data()
     reedem = data['code']
 
-    result = db.activate_reedem(reedem_code=reedem)
-    if result == True:
-        await message.answer("Buyurtma kodi muvaffaqiyatli aktivlashtirildi✅", reply_markup=adm.mainMenu)
-        await state.finish()
+    result = db.get_mavzu_reedem(reedem)
+    if result:
+        await message.answer(result)
+        await st.act_reedem.ok.set()
 
     else:
         await message.answer("Bazada bunday aktivlash kodi mavjud emas ❌", reply_markup=adm.mainMenu)
         await state.finish()
     
     await state.finish()
+
+
+
+
+@dp.callback_query_handler(user_id=cfg.ADMINS, state=st.act_reedem.ok)
+async def set_act_reedem(call:CallbackQuery, state:FSMContext):
+    await state.update_data(code=call.data)
+    data = await state.get_data()
+    result = data['ok']
+
+
+    
 
 
 

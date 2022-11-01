@@ -37,7 +37,16 @@ buy_mavzuMenu = InlineKeyboardMarkup().add(
 
 # buyurtm menu
 buyurtmaMenu = InlineKeyboardMarkup().add(
-    InlineKeyboardButton("Buyurtmani olish📩", callback_data='get_orderMavzu')
+    InlineKeyboardButton("Buyurtmani olish📩", callback_data='get_orderMavzu'),
+    InlineKeyboardButton("Bosh menyu🏠", callback_data='mainMenuUser')
+
+)
+
+
+
+mavzu_typeMenu = InlineKeyboardMarkup().add(
+    InlineKeyboardButton("Premium mavzular🪙", callback_data='get_premium_mavzular'),
+    InlineKeyboardButton("Bepul mavzular✅", callback_data="get_free_mavzular"),
 )
 
 

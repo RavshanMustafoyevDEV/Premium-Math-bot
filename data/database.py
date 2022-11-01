@@ -46,6 +46,17 @@ class Database:
             mavzular = self.cursor.execute(f"SELECT * FROM mavzular").fetchall()
             return mavzular
 
+    def get_premium_mavzular(self):
+        with self.con:
+            mavzular = self.cursor.execute(f"SELECT * FROM mavzular WHERE price != 0").fetchall()
+            return mavzular
+
+
+    def get_free_mavzular(self):
+        with self.con:
+            mavzular = self.cursor.execute(f"SELECT * FROM mavzular WHERE price = 0").fetchall()
+            return mavzular
+
 
 
 

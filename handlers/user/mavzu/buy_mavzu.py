@@ -26,6 +26,13 @@ async def set_id_buyMavzu(message, state:FSMContext):
         if result:
             if result != 'free':
                 await message.answer(f"""
+Admin: <a href="t.me/Matematika_2_maktab" >Muhammadali Saydullayev</a> 👤
+Karta raqam: <code>9860 1601 3541 9499</code> 💳
+Buyurtma kodingiz: <code>{result}</code>
+
+Kodni ko'chirib olish uchun kodni ustiga bosing 📑
+
+
 Sizning buyurtmangiz muvaffaqiyatli yaratildi✅
 
 Endi faqat uni aktivlashtirish qoldi xolos, kodni aktivlashtirish uchun:
@@ -34,12 +41,6 @@ Endi faqat uni aktivlashtirish qoldi xolos, kodni aktivlashtirish uchun:
 2️⃣ Va buyurtma kodingizni ham adminga yuboring 👤
 
 3️⃣ Admin kodingiz aktivlashgani haqida xabar bergandan so'ng <strong>Buyurtma</strong> > <strong>Buyurtmani olish</strong> bo'limiga buyurtma kodingizni kiriting va bot sizga buyurtma faylingizni yuboradi📩
-
-Admin: <a href="t.me/Matematika_2_maktab" >Muhammadali Saydullayev</a> 👤
-Karta raqam: <code>9860 1601 3541 9499</code> 💳
-Buyurtma kodingiz: <code>{result}</code>
-
-Kodni ko'chirib olish uchun kodni ustiga bosing 📑
                 """, parse_mode='html', reply_markup=mrk.mainMenu)
 
             elif result == 'free':

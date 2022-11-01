@@ -32,15 +32,15 @@ db = database.Database('data/data.db')
 if __name__ == '__main__':
     #hanlers import
     from handlers.user.user import dp
-    from handlers.user.mavzular import dp
+    from handlers.user.mavzu.mavzular import dp
     from handlers.admin.admin import dp
-    from handlers.admin.set_newMavzu import dp
-    from handlers.admin.del_Mavzu import dp
-    from handlers.admin.list_mavzu import dp
-    from handlers.user.search_Mavzu import dp
-    from handlers.user.buy_mavzu import dp
-    from handlers.admin.act_reedem import dp
-    from handlers.user.delReedem import dp
+    from handlers.admin.mavzu.set_newMavzu import dp
+    from handlers.admin.mavzu.del_Mavzu import dp
+    from handlers.admin.mavzu.list_mavzu import dp
+    from handlers.user.mavzu.search_Mavzu import dp
+    from handlers.user.mavzu.buy_mavzu import dp
+    from handlers.admin.mavzu.act_reedem import dp
+    from handlers.user.mavzu.delReedem import dp
 
   
     executor.start_polling(dp, skip_updates=False)
