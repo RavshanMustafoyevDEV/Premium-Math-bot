@@ -23,9 +23,11 @@ regMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(
 
 # Mavzular Main menu
 mavzularMenu = InlineKeyboardMarkup(row_width=1).add(
-    InlineKeyboardButton("Mavzu kursini xarid qilish🛒", callback_data="buy_mavzu"),
+    InlineKeyboardButton("Mavzu kursini xarid qilish🛒", callback_data="buy_mavzu")
+    ).row(
     InlineKeyboardButton("Ro'yxat📜", callback_data='list_mavzular'),
-    InlineKeyboardButton("Mavzuni qidirish🔍", callback_data='search_mavzu'),
+    InlineKeyboardButton("Mavzuni qidirish🔍", callback_data='search_mavzu')
+    ).add(
     InlineKeyboardButton("Bosh menyu🏠", callback_data='mainMenuUser')
 )
 

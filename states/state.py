@@ -26,8 +26,8 @@ class buyMavzu(StatesGroup):
 
 # Buyurtma kodini aktivlash 
 class act_reedem(StatesGroup):
-    code = State()
-    ok = State()
+    code_act = State()
+    ok_act = State()
 
 
 

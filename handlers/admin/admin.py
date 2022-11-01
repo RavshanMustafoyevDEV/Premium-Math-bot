@@ -13,6 +13,7 @@ async def start_command(message):
 
 @dp.callback_query_handler(text="mainMenu", user_id=cfg.ADMINS)
 async def mainMenuAdmin(call:CallbackQuery):
+    await call.message.delete()
     await call.message.answer("Bosh menyu🏠", reply_markup=adm.mainMenu)
 
 

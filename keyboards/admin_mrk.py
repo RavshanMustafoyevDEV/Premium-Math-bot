@@ -17,9 +17,9 @@ mavzularMenu = InlineKeyboardMarkup().row(
     InlineKeyboardButton("Mavzuni o'chirish➖", callback_data="Mavzuni o'chirish➖"),
 ).add(
     InlineKeyboardButton("Ro'yxat📑", callback_data="Ro'yxat📑") ,
-    InlineKeyboardButton("Bosh menyu🏠", callback_data="mainMenu")  
-).row(
     InlineKeyboardButton("Mavzu kodini aktivlash✅", callback_data="activate_reedem")
+).row(
+    InlineKeyboardButton("Bosh menyu🏠", callback_data="mainMenu")  
 )
 
 
@@ -31,6 +31,10 @@ for mavzu in db.get_mavzular():
     )
 
 
+act_reedemMenu = InlineKeyboardMarkup().add(
+    InlineKeyboardButton("Ha", callback_data='act'),
+    InlineKeyboardButton("Yo'q", callback_data='de-act')
+)
 
 
 
