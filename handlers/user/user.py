@@ -11,7 +11,7 @@ async def start_command(message):
     if db.checkUser(message.from_user.id):
         await message.answer(f"Salom {message.from_user.first_name}🖐️", reply_markup=mrk.mainMenu)    
     else:
-        await message.answer(f"Salom, {message.from_user.first_name}.\nBotimizdan to'liq foydalanish uchun ro'yxatdan o'ting !", reply_markup=mrk.regMenu)
+        await message.answer(f"Salom, {message.from_user.first_name}👋.\nBotimizdan to'liq foydalanish uchun ro'yxatdan o'ting !🪪", reply_markup=mrk.regMenu)
 
 
 

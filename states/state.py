@@ -33,8 +33,66 @@ class act_reedem(StatesGroup):
 
 
 # Sotib olingan 
-class get_order_mavzu(StatesGroup):
+class get_order(StatesGroup):
     code = State()
 
+
+
+# TESTS--------------------------------------------------------------------------
+class new_test(StatesGroup):
+    unit = State()
+    answers = State()
+    price = State()
+    file_id = State()
+    ok = State()
+
+class remove_test(StatesGroup):
+    test_id = State()
+    ok = State()
+
+
+class search_test(StatesGroup):
+    test_id = State()
+
+class list_test(StatesGroup):
+    test_unit = State()
+
+
+
+class list_test2(StatesGroup):
+    unit = State()
+
+
+
+class buyTest(StatesGroup):
+    unit = State()
+    test_id = State()
+    ok = State()
+
+
+
+class get_free_test(StatesGroup):
+    unit = State()
+    test_id = State()
+    ok = State()
+
+
+class check_test_answers(StatesGroup):
+    test_id = State()
+    test_answers = State()
+
+
+
+
+
+
+
+
+#UNITS=======================================================
+class new_unit(StatesGroup):
+    unit = State()
+
+class remove_unit(StatesGroup):
+    unit = State()
 
 

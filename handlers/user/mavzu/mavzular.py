@@ -21,27 +21,37 @@ async def list_mavzular(call: CallbackQuery):
 
 @dp.callback_query_handler(text='get_free_mavzular')
 async def list_m(call:CallbackQuery, state:FSMContext):
+    back_mavzular = mrk.InlineKeyboardMarkup().add(
+        mrk.InlineKeyboardButton("Orqaga🔙", callback_data='back_mavzular')
+    )
     mavzular = db.get_free_mavzular()
     mavzular2 = []
 
     for i,val in enumerate(mavzular, start=1):
         if int(val[2]) == 0:
-            test = f'{i}) ID: `{val[0]}` | *{val[1]}* 🆓'
+            test = f'{i}) ID: <code>{val[0]}</code> | <strong>{val[1]}</strong> 🆓'
         else:
-            test = f'{i}) ID: `{val[0]}` | *{val[1]}*'
+            test = f'{i}) ID: <code>{val[0]}</code> | <strong>{val[1]}</strong>'
         mavzular2.append(test)
 
-    await call.message.edit_text('\n'.join(mavzular2), parse_mode='Markdown')    
-    await call.message.answer(f"""
+    fin_list = '\n'.join(mavzular2)
+
+    await call.message.edit_text(f"""
 Mavzular soni : {len(mavzular)} ta 📚
 
 Bepul mavzularni <strong>Mavzu</strong> > <strong>Mavzuni qidirish</strong> bo'limiga ID sini yozsangiz bot sizga mavzu faylini yuboradi✅
 
-""", parse_mode='html', reply_markup=mrk.mainMenu)
+Ro'yxat:
+{fin_list}
+    """, parse_mode='html', reply_markup=back_mavzular)    
+    
 
 
 @dp.callback_query_handler(text='get_premium_mavzular')
 async def list_m(call:CallbackQuery, state:FSMContext):
+    back_mavzular = mrk.InlineKeyboardMarkup().add(
+        mrk.InlineKeyboardButton("Orqaga🔙", callback_data='back_mavzular')
+    )
     mavzular = db.get_premium_mavzular()
     mavzular2 = []
 
@@ -52,12 +62,13 @@ async def list_m(call:CallbackQuery, state:FSMContext):
             test = f'{i}) ID: `{val[0]}` | *{val[1]}*'
         mavzular2.append(test)
 
-    await call.message.edit_text('\n'.join(mavzular2), parse_mode='Markdown')    
-    await call.message.answer(f"""
-Mavzular soni : {len(mavzular)} ta 📚
+    fin_list = '\n'.join(mavzular2)
 
-""", parse_mode='html', reply_markup=mrk.mainMenu)
-
+    await call.message.edit_text(text=f"Mavzular soni: *{len(mavzular)}*\n\n{fin_list}", parse_mode='markdown', reply_markup=back_mavzular)    
+    
 
 
+@dp.callback_query_handler(text='back_mavzular')
+async def back_m(call:CallbackQuery):
+    await call.message.edit_text("Tanlang:", reply_markup=mrk.mavzularMenu)
 

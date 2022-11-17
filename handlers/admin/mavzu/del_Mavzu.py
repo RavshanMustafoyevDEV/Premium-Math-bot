@@ -20,7 +20,7 @@ async def cancel_setNewMavzu(message, state:FSMContext):
 @dp.callback_query_handler(user_id=cfg.ADMINS, text="Mavzuni o'chirish➖")
 async def del_Mavzu(call:CallbackQuery, state:FSMContext):
     await call.message.delete()
-    mavzular = db.get_mavzular()
+    mavzular =  db.get_mavzular()
     mavzular2 = []
 
     for i,val in enumerate(mavzular, start=1):

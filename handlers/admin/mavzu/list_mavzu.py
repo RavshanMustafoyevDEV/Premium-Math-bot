@@ -19,9 +19,10 @@ async def list_mavzular(call:CallbackQuery, state:FSMContext):
 
         else:
             narx = f"{val[2]} so'm"
-        await bot.send_document(
-            chat_id=call.message.chat.id, 
-            document=val[4],
+
+        file = val[4]
+        await call.message.answer_document(
+            document=file,
             reply_markup=adm.mainMenu,
             parse_mode='Markdown',
             caption=f"""

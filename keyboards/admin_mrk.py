@@ -17,7 +17,6 @@ mavzularMenu = InlineKeyboardMarkup().row(
     InlineKeyboardButton("Mavzuni o'chirish➖", callback_data="Mavzuni o'chirish➖"),
 ).add(
     InlineKeyboardButton("Ro'yxat📑", callback_data="Ro'yxat📑") ,
-    InlineKeyboardButton("Mavzu kodini aktivlash✅", callback_data="activate_reedem")
 ).row(
     InlineKeyboardButton("Bosh menyu🏠", callback_data="mainMenu")  
 )
@@ -44,11 +43,61 @@ okMenu = InlineKeyboardMarkup().add(
     InlineKeyboardButton("Yo'q", callback_data='no')
 )
 
+newTest_okMenu = InlineKeyboardMarkup().add(
+    InlineKeyboardButton("Ha", callback_data='ha'),
+    InlineKeyboardButton("Yo'q", callback_data='yo')
+)
+
+
+
+
+# TESTS----------------------------------------------------------------
+testMenu = InlineKeyboardMarkup(row_width=1).row(
+    InlineKeyboardButton("Qo'shish➕", callback_data='add_test'),
+    InlineKeyboardButton("O'chirish➖", callback_data='remove_test'),
+).row(
+    InlineKeyboardButton("Ro'yxat📑", callback_data='list_tests'),
+    InlineKeyboardButton("Qidirish🔍", callback_data='search_test')
+).add(
+    InlineKeyboardButton("Unitlar", callback_data="units"),
+    InlineKeyboardButton("Orqaga🔙", callback_data='mainMenu')
+)
 
 
 
 
 
+
+
+
+
+
+# ORDERS ------------------------------------------------
+orderMenu = InlineKeyboardMarkup(row_width=1).add(
+    InlineKeyboardButton("Kod aktivlashtirish✅", callback_data='activate_reedem'),
+    InlineKeyboardButton("Orqaga🔙", callback_data='mainMenu')
+)
+
+
+
+
+
+
+
+
+
+
+
+# UNITS==================================================================
+
+
+unitMainMenu = InlineKeyboardMarkup(row_width=1).row(
+    InlineKeyboardButton("Qo'shish➕", callback_data="add_unit"),
+    InlineKeyboardButton("O'chirish➖", callback_data="remove_unit"),
+).add(
+    InlineKeyboardButton("Ro'yxat📜", callback_data="list_unit"),
+    InlineKeyboardButton("Orqaga🔙", callback_data="back_tests"),
+)
 
 
 

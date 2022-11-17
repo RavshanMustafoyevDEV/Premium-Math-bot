@@ -1,8 +1,14 @@
 from aiogram.types import CallbackQuery
-from app import bot, dp, db, st, cfg, types
+from aiogram import types
+from app import bot, dp, db, st, cfg
 from keyboards import admin_mrk as adm
-
 from aiogram.dispatcher import FSMContext
+
+
+@dp.message_handler(text="Buyurtmalar bo'limi📦")
+async def asdwoenj(m:types.Message):
+    await m.answer(m.text, reply_markup=adm.ReplyKeyboardRemove())
+    await m.answer("Tanlang:", reply_markup=adm.orderMenu)
 
 
 #Cancel State 
@@ -25,27 +31,43 @@ async def ok_actReedem(message:types.Message, state:FSMContext):
     data = await state.get_data()
     reedem = data['code_act']
 
-    result = db.get_mavzu_reedem(reedem)
+    result = db.get_reedem(code=reedem)
     if result:
-        for i in result:
-            mv = db.get_mavzu(idMavzu=i[2])
-            for m in mv:
-                    await message.answer_document(
-                        document=m[4],
-                        caption=f"""
+            if result[1] == 'mavzu':
+                mv = db.get_mavzu(idMavzu=result[2])
+                for m in mv:
+                        await message.answer_document(
+                            document=m[4],
+                            caption=f"""
 Mavzu ID : {m[0]} 🆔
 Mavzu nomi: {m[1]} 📑
 Mavzu narxi: {m[2]} so'm 🪙
 
 Mavzu haqida:
-   ➖
+➖
 {m[3]}
-   ➖
-                        """
-                    )
-                    await message.answer("Mazvu kodi aktivlashtirilsinmi ?", reply_markup=adm.okMenu)
+➖
+                            """
+                        )
+                        await message.answer("Mazvu kodi aktivlashtirilsinmi ?", reply_markup=adm.okMenu)
 
-            await st.act_reedem.ok_act.set()
+                await st.act_reedem.ok_act.set()
+
+            if result[1] == 'test':
+                mv = db.get_test(idTest=result[2])
+                for m in mv:
+                        await message.answer_document(
+                            document=m[4],
+                            caption=f"""
+Test ID : {m[0]} 🆔
+Test mavzusi: {m[1]} 📑
+Test narxi: {m[3]} so'm 🪙
+Test javoblari: {m[2].upper()} ({len(m[2])} ta savol)
+                            """
+                        )
+                        await message.answer("Mazvu kodi aktivlashtirilsinmi ?", reply_markup=adm.okMenu)
+
+                await st.act_reedem.ok_act.set()
                 
 
 
@@ -80,10 +102,8 @@ async def set_act_reedem(call:CallbackQuery, state:FSMContext):
         await call.message.delete()
         await call.message.answer("So'rov bekor qilindi ❌", reply_markup=adm.mainMenu)
 
-    
 
 
-    
 
 
 
