@@ -10,6 +10,7 @@ mainMenu = ReplyKeyboardMarkup(resize_keyboard=True, row_width=1).add(
     KeyboardButton("Mavzular bo'limi📃"),
     KeyboardButton("Testlar bo'limi📑"),
     KeyboardButton("Buyurtmalar bo'limi📦"),
+    KeyboardButton("Bot🤖")
 )
 
 mavzularMenu = InlineKeyboardMarkup().row(
@@ -99,6 +100,19 @@ unitMainMenu = InlineKeyboardMarkup(row_width=1).row(
     InlineKeyboardButton("Orqaga🔙", callback_data="back_tests"),
 )
 
+
+
+
+#BOT SETTINGS==========================================================
+botMenu = InlineKeyboardMarkup(row_width=1).add(
+    InlineKeyboardButton("Statistika📶", callback_data='statistic'),
+    InlineKeyboardButton("Yangi Post📑", callback_data='new_post'),
+    InlineKeyboardButton("Adminlar👤", callback_data='admins')
+)
+
+back_to_botMenu = InlineKeyboardMarkup().add(
+    InlineKeyboardButton("Orqaga🔙", callback_data='back_to_bot')
+)
 
 
 

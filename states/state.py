@@ -96,3 +96,13 @@ class remove_unit(StatesGroup):
     unit = State()
 
 
+
+
+
+# Bot =======================================================
+class newPost(StatesGroup):
+    isImg = State()
+    img = State()
+    message = State()
+    ok = State()
+

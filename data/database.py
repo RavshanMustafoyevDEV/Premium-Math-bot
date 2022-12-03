@@ -326,6 +326,27 @@ class Database:
             u = self.con.execute("SELECT unit FROM units").fetchall()
             return u
 
+
+
+
+    # bot ===================================================
+    def get_users(self):
+        with self.con:
+            users = self.con.execute("SELECT * FROM users").fetchall()
+            return users
+
+    def get_saled_tests(self):
+        with self.con:
+            t = self.con.execute("SELECT * FROM saled_tests").fetchall()
+            q = []
+
+            for r in t:
+                j = r[2]
+                q.append(j)
+
+
+            return q
         
+
 
 
