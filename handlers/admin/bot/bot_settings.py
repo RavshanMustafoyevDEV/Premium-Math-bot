@@ -155,3 +155,11 @@ async def set_ok(call:CallbackQuery, state:FSMContext):
 
 
 
+
+
+
+
+# ADMIN ADD REMOVE ============================================================================
+
+
+

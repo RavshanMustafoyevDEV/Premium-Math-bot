@@ -9,8 +9,6 @@ mainMenu = ReplyKeyboardMarkup(resize_keyboard=True).row(
     KeyboardButton('Mavzular📃'),
     KeyboardButton('Testlar📑'),
     KeyboardButton('Buyurtma📦'),
-).add(
-    KeyboardButton('Izoh qoldirish📜')
 )
 
 

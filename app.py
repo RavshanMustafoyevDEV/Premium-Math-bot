@@ -1,6 +1,4 @@
-from cgitb import text
 from aiogram import Bot, Dispatcher, executor, types
-import asyncio
 #FSM import
 from aiogram.dispatcher import FSMContext
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -13,10 +11,11 @@ import keyboards
 import config as cfg
 from data import database
 
-loop = asyncio.new_event_loop()
+
+
 
 bot = Bot(cfg.TOKEN)
-dp = Dispatcher(bot, loop=loop, storage=MemoryStorage())
+dp = Dispatcher(bot, storage=MemoryStorage())
 adminID = cfg.ADMINS
 db = database.Database('data/data.db')
 

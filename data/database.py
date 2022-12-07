@@ -350,3 +350,13 @@ class Database:
 
 
 
+
+
+    # ADMIN ADD REMOVE==========================================
+    def get_admins(self):
+        with self.con:
+            list = self.cursor.execute("select user_id from admins").fetchall()
+            return list
+
+
+
