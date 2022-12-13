@@ -28,7 +28,12 @@ mavzularMenu = InlineKeyboardMarkup(row_width=1).add(
     InlineKeyboardButton("Ro'yxat📜", callback_data='list_mavzular'),
     InlineKeyboardButton("Mavzuni qidirish🔍", callback_data='search_mavzu')
     ).add(
-    InlineKeyboardButton("Bosh menyu🏠", callback_data='mainMenuUser')
+    InlineKeyboardButton('Mening mavzularim📔', callback_data='my_mavzular'),
+    InlineKeyboardButton("Bosh menyu🏠", callback_data='mainMenuUser'),
+)
+
+myMavzuMenu = InlineKeyboardMarkup(row_width=1).add(
+    InlineKeyboardButton("Orqaga🔙", callback_data='back_mavzu_user')
 )
 
 

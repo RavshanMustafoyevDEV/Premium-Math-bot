@@ -51,6 +51,7 @@ if __name__ == '__main__':
     from handlers.user.test.list_test import dp
     from handlers.user.test.my_tests import dp
     from handlers.admin.bot.bot_settings import dp
+    from handlers.user.mavzu.get_my_mavzu import dp
 
 
 

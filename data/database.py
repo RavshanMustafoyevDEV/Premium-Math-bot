@@ -145,16 +145,43 @@ class Database:
                 pass
 
 
-    def set_saled_mavzu(self, idMavzu, test_price):
+    def set_saled_mavzu(self, idMavzu, user_id):
         with self.con:
-            t = self.con.execute(f"SELECT * FROM mavzular WHERE test_id = '{idTest}'").fetchone()
+            t = self.con.execute(f"SELECT * FROM mavzular WHERE id = '{idMavzu}'").fetchone()
             if t:
+                price = t[2]
                 date_full = datetime.datetime.now().strftime("%d-%b-%Y")
-                self.con.execute(f"INSERT INTO saled_tests VALUES('{t[0]}', '{date_full}','{test_price}', '{user_id}')")
+                self.con.execute(f"INSERT INTO saled_mavzu VALUES('{idMavzu}', '{t[1]}','{price}', '{date_full}', '{user_id}')")
                 self.con.commit()
                 return True
             else:
                 pass
+
+
+    def get_my_mavzu(self, user_id):
+        with self.con:
+            my_mavzu = self.cursor.execute(f"SELECT * FROM saled_mavzu WHERE userID = {user_id}").fetchall()
+
+            if my_mavzu:
+                return my_mavzu
+
+            else:
+                pass
+
+    def get_saled_mavzu(self):
+        with self.con:
+            t = self.con.execute("SELECT * FROM saled_mavzu").fetchall()
+            q = []
+
+            for r in t:
+                j = r[2]
+                q.append(j)
+
+
+            return q
+
+    
+
 
 
 

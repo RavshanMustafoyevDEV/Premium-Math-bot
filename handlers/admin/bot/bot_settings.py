@@ -25,13 +25,17 @@ async def users_total(call:CallbackQuery):
     mavzular = len(db.get_mavzular())
     users = len(db.get_users())
     saled_tests = db.get_saled_tests()
+    saled_mavzu = db.get_saled_mavzu()
 
     await call.message.edit_text(f"""
 Foydalanuvchilar soni : {users} ta👤
 Testlar soni : {tests} ta 📑
 Mavzular soni : {mavzular} ta 📜
 
-Sotilgan testlar soni : {len(saled_tests)} ta ( {sum(saled_tests):,} so'm🪙 )
+Sotilgan testlar soni : {len(saled_tests)} ta ( {sum(saled_tests):,} so'm🪙 ) 📑
+Sotilgan mavzular soni : {len(saled_mavzu)} ta ( {sum(saled_mavzu):,} so'm🪙 ) 📙
+
+Umumiy daromad : {sum(saled_mavzu) + sum(saled_tests)} so'm 💵
     """, reply_markup=adm.back_to_botMenu)
 
 

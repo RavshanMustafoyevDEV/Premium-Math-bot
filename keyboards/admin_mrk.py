@@ -107,6 +107,8 @@ unitMainMenu = InlineKeyboardMarkup(row_width=1).row(
 botMenu = InlineKeyboardMarkup(row_width=1).add(
     InlineKeyboardButton("Statistika📶", callback_data='statistic'),
     InlineKeyboardButton("Yangi Post📑", callback_data='new_post'),
+    InlineKeyboardButton("Orqaga🔙", callback_data='mainMenu')
+
 )
 
 back_to_botMenu = InlineKeyboardMarkup().add(

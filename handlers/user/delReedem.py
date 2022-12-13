@@ -47,6 +47,7 @@ Mavzu kursida :
 Xizmatimizdan foydalanganingiz uchun tashakkur 😊
                         """, reply_markup=mrk.mainMenu, parse_mode='html')
                         db.delete_reedem(reedem_code=code)
+                        db.set_saled_mavzu(idMavzu=m[0], user_id=message.from_user.id)
                         await message.answer("Ushbu buyurtma kodingizdan foydalanib bo'ldingiz ushbu kod ma'lumotlar omboridan o'chirildi❗")
                         await state.finish()
 
