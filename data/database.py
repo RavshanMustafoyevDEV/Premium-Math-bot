@@ -145,6 +145,18 @@ class Database:
                 pass
 
 
+    def set_saled_mavzu(self, idMavzu, test_price):
+        with self.con:
+            t = self.con.execute(f"SELECT * FROM mavzular WHERE test_id = '{idTest}'").fetchone()
+            if t:
+                date_full = datetime.datetime.now().strftime("%d-%b-%Y")
+                self.con.execute(f"INSERT INTO saled_tests VALUES('{t[0]}', '{date_full}','{test_price}', '{user_id}')")
+                self.con.commit()
+                return True
+            else:
+                pass
+
+
 
 
                 
