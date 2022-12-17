@@ -146,7 +146,7 @@ async def set_ok(call:CallbackQuery, state:FSMContext):
                 except:
                     pass 
 
-        await call.message.answer("Post muvaffaqiyatli jo'natildi✅")         
+        await call.message.answer("Post muvaffaqiyatli jo'natildi✅", reply_markup=adm.botMenu)         
 
     else:
         await call.message.delete()
