@@ -1,3 +1,7 @@
+from environs import Env
+env = Env()
+env.read_env()
 
-TOKEN = '5771190725:AAHQhlX84ji96XXX6hsMeUR-pBqlZLXEtxQ' # BOT TOKEN
-ADMINS = ['1947186487']
+
+TOKEN = env("token")
+ADMINS = ['1947186487', '5744389492']
